@@ -1,0 +1,14 @@
+.listContainer {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.title {
+  font: var(--font-title);
+}
