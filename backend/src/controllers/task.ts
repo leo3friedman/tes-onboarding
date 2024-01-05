@@ -81,3 +81,35 @@ export const removeTask: RequestHandler = async (req, res, next) => {
     next(error);
   }
 };
+
+export const updateTask: RequestHandler = async (req, res, next) => {
+  // your code here
+  const id = req.params.id;
+  const { title, description, isChecked, _id, dateCreated } = req.body;
+  try {
+    if (id !== _id) {
+      res.send(400);
+    }
+
+    const result = await TaskModel.findByIdAndUpdate(id, {
+      title,
+      description,
+      isChecked,
+      dateCreated,
+    });
+
+    if (result === null) {
+      res.send(404);
+    }
+
+    const task = await TaskModel.findById(id);
+
+    if (task === null) {
+      res.send(404);
+    }
+
+    res.status(200).json(task);
+  } catch (error) {
+    next(error);
+  }
+};

@@ -7,7 +7,7 @@ import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import { isHttpError } from "http-errors";
 import taskRoutes from "src/routes/task";
-import tasksRoutes from "src/routes/tasks"
+import tasksRoutes from "src/routes/tasks";
 
 const app = express();
 
